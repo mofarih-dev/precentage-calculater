@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../dist/output.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container h-screen mx-auto flex justify-center items-start md:items-center">
+    <div class="bg-[#edf2fb] h-2/5 w-5/6 sm:w-full md:4/6 lg:w-3/6 rounded-xl flex justify-center flex-col mt-12">
+      <div class="font-sans font-semibold text-2xl text-center mb-8">حاسبة النسبة المئوية</div>
+      <div
+        class="flex justify-center flex-col sm:flex-row-reverse [&>*]:mx-2 [&>*]:my-2 [&>*]:sm:my-0  md:[&>*]:mx-4 sm:[&>*]:w-full [&>*]:p-2 [&>*]:rounded-md [&>*]:outline-none">
+        <input type="number" name="" id="value" placeholder="الجزء" dir="rtl">
+        <input type="number" name="" id="total" placeholder="القيمة الكلية" dir="rtl">
+      </div>
+      <button id="calc-btn"
+        class="w-4/12 text-white text-xl text-center bg-[#2173d1] self-center mt-6 h-10 rounded-lg outline-none">أحسب</button>
+      <div id="result" class="text-center my-4 text-xl "></div>
+    </div>
+    <script src="../src/app.js"></script>
+</body>
+
+</html>
