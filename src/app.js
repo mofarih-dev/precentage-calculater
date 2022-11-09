@@ -3,11 +3,7 @@ let settingBtn = document.getElementById("setting-btn");
 let dropdownMenu = document.getElementById("dropdown-menu");
 let darkModeToggle = document.getElementById("dark-mode");
 let lightModeToggle = document.getElementById("light-mode");
-// calculater elemnts
-let value = document.getElementById("value");
-let total = document.getElementById("total");
-let result = document.getElementById("result");
-let calcBtn = document.getElementById("calc-btn");
+let developer = document.getElementById("developer");
 // appearance elemnts
 const appearance = document.getElementById("appearance");
 const userTheme = localStorage.getItem("theme");
@@ -18,6 +14,11 @@ const Ar = document.getElementById("ar");
 const En = document.getElementById("en");
 const lang = document.getElementById("lang");
 const precentageCalc = document.getElementById("precntage-calc");
+// calculater elemnts
+let value = document.getElementById("value");
+let total = document.getElementById("total");
+let result = document.getElementById("result");
+let calcBtn = document.getElementById("calc-btn");
 
 calcBtn.addEventListener("click", () => {
   if ((value.value !== "") & (total.value !== "")) {
@@ -28,7 +29,11 @@ calcBtn.addEventListener("click", () => {
         : finalResult
     }%`;
   } else {
-    alert("من فضلك املأ كل الحقول");
+    let warn =
+      localStorage.getItem("lang") === "en"
+        ? "please fill all inputs!"
+        : "من فضلك املأ كل الحقول!";
+    alert(warn);
   }
 });
 
@@ -56,20 +61,22 @@ window.addEventListener("load", () => {
   //translate to English
   if (userLanguage === "en") {
     appearance.innerHTML = "Appearance";
-    appearance.classList.remove("text-right");
-    themeIcons.classList.remove("justify-end");
     Ar.innerHTML = "Arabic";
-    Ar.classList.remove("text-right");
     En.innerHTML = "English";
-    En.classList.remove("text-right");
     lang.innerHTML = "language";
-    lang.classList.remove("text-right");
     precentageCalc.innerHTML = "Precentage Calculater";
     value.placeholder = "Value";
-    value.dir = "ltr";
     total.placeholder = "Total";
-    total.dir = "ltr";
     calcBtn.innerHTML = "Calc";
+    [developer, themeIcons].forEach((e) => {
+      e.classList.remove("justify-end");
+    });
+    [value, total].forEach((e) => {
+      e.dir = "ltr";
+    });
+    [appearance, Ar, En, lang].forEach((e) => {
+      e.classList.remove("text-right");
+    });
   } else {
     localStorage.removeItem("lang");
   }
